@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nBayes.Sample", "nBayes.Sample\nBayes.Sample.csproj", "{F9BF3304-A13E-4FAA-8DF9-2F4999B00235}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nBayes", "nBayes\nBayes.csproj", "{3747B7E2-4EE1-4AAA-8EBF-B9655DAF6A6B}"

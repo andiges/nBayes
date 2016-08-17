@@ -4,22 +4,15 @@
 
     internal class MemoryIndex : Index
     {
-        internal IndexTable<string, int> table = new IndexTable<string, int>();
+        internal IndexTable<string, double> table = new IndexTable<string, double>();
 
         public MemoryIndex()
         {
         }
 
-        public override int EntryCount
-        {
-            get
-            {
-                return table.Values.Sum();
-            }
-        }
-
         public override void Add(Entry document)
         {
+            TextCount++;
             foreach (string token in document)
             {
                 if (table.ContainsKey(token))
@@ -33,9 +26,18 @@
             }
         }
 
-        public override int GetTokenCount(string token)
+        public override void Add(string word, double probability)
         {
-            return this.table.ContainsKey(token) ? this.table[token] : 0;
+            table.Add(word, probability);
+        }
+
+        public override double GetTokenProbability(string token)
+        {
+            if (table.ContainsKey(token))
+            {
+                return table[token];
+            }
+            return 0;
         }
     }
 }

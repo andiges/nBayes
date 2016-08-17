@@ -1,4 +1,6 @@
-﻿namespace nBayes
+﻿using Newtonsoft.Json;
+
+namespace nBayes
 {
     using System;
     using System.IO;
@@ -19,22 +21,16 @@
             this.filePath = filePath;
         }
 
-        public override int EntryCount
-        {
-            get { return this.index.EntryCount; }
-        }
-
         /// <exception cref="InvalidOperationException">Occurs when the serializer has trouble
         /// deserializing the file on disk. Can occur if the file is corrupted.</exception>
         public void Open()
         {
             if (File.Exists(this.filePath))
             {
-                using (Stream stream = File.OpenRead(this.filePath))
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(IndexTable<string, int>));
-                    index.table = serializer.Deserialize(stream) as IndexTable<string, int>;
-                }
+                string json = File.ReadAllText(filePath);
+                MemoryIndex memoryIndex = JsonConvert.DeserializeObject<MemoryIndex>(json);
+                index.table = memoryIndex.table;
+                index.TextCount = memoryIndex.TextCount;
             }
         }
 
@@ -43,18 +39,20 @@
             this.index.Add(document);
         }
 
-        public void Save()
+        public override void Add(string word, double probability)
         {
-            using (Stream stream = File.Open(this.filePath, FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(IndexTable<string, int>));
-                serializer.Serialize(stream, index.table);
-            }
+            index.Add(word, probability);
         }
 
-        public override int GetTokenCount(string token)
+        public override double GetTokenProbability(string token)
         {
-            return this.index.GetTokenCount(token);
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            string indexAsString = JsonConvert.SerializeObject(index, Formatting.Indented);
+            File.WriteAllText(filePath, indexAsString);
         }
     }
 }

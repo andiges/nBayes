@@ -9,19 +9,11 @@
         {
         }
 
-        public abstract int EntryCount { get; }
-
-
-        public virtual void Add(params Entry[] documents)
-        {
-            for (int i = 0; i < documents.Length; i++)
-            {
-                this.Add(documents[i]);
-            }
-        }
+        public int TextCount { get; set; }
 
         public abstract void Add(Entry document);
-        public abstract int GetTokenCount(string token);
+        public abstract void Add(string word, double probability);
+        public abstract double GetTokenProbability(string token);
 
         public static Index CreateMemoryIndex()
         {

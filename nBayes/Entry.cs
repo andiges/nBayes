@@ -42,11 +42,11 @@
             /// </summary>
             private static IEnumerable<string> Parse(string source)
             {
-                string clean = CleanInput(source);
+                string clean = CleanInput(source.ToLowerInvariant());
                 string[] tokens = clean.Split(' ');
                 return tokens
                     .Where(t => !t.Equals(" ", StringComparison.InvariantCultureIgnoreCase))
-                    .Select(t => t.ToLowerInvariant())
+                    .Where(t => !string.IsNullOrWhiteSpace(t))
                     .Distinct();
             }
 
@@ -55,7 +55,7 @@
             /// </summary>
             private static string CleanInput(string strIn)
             {
-                return Regex.Replace(strIn, @"[^\w\'@-]", " ");
+                return Regex.Replace(strIn, @"[^\p{Ll}]", " ");
             }
         }
 

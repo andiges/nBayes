@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nBayes", "nBayes\nBayes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nBayes.test", "nBayes.test\nBayes.test.csproj", "{4AA195A7-7E8A-4D7B-87AC-1A0A3E55F725}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nBayes.Sample2", "nBayes.Sample2\nBayes.Sample2.csproj", "{8420320E-2E34-4678-AD7C-F33B93A6F7F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,23 +29,15 @@ Global
 		{4AA195A7-7E8A-4D7B-87AC-1A0A3E55F725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AA195A7-7E8A-4D7B-87AC-1A0A3E55F725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AA195A7-7E8A-4D7B-87AC-1A0A3E55F725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8420320E-2E34-4678-AD7C-F33B93A6F7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8420320E-2E34-4678-AD7C-F33B93A6F7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8420320E-2E34-4678-AD7C-F33B93A6F7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8420320E-2E34-4678-AD7C-F33B93A6F7F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = nBayes.Sample\nBayes.Sample.csproj
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs10.codeplex.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = nBayes.Sample\\nBayes.Sample.csproj
-		SccProjectName1 = nBayes.Sample
-		SccLocalPath1 = nBayes.Sample
-		SccProjectUniqueName2 = nBayes\\nBayes.csproj
-		SccProjectName2 = nBayes
-		SccLocalPath2 = nBayes
 	EndGlobalSection
 EndGlobal
